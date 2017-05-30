@@ -49,6 +49,12 @@ RUN rm -rf librdkafka-0.9.5
 RUN git clone https://github.com/babelouest/ulfius.git
 WORKDIR ulfius/
 RUN git submodule update --init
+
+WORKDIR lib/orcania
+RUN make install
+WORKDIR ../yder
+RUN make install
+WORKDIR ../..
 RUN make
 RUN make install
 WORKDIR ..
